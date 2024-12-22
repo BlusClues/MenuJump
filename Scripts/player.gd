@@ -3,7 +3,10 @@ extends CharacterBody2D
 @export var speed = 150
 @export var gravity = 30
 @export var jumpForce = 400
+@export var objectScene = preload("res://Scenes/ResumeButton.tscn")
+var offset
 #https://www.youtube.com/watch?v=LOhfqjmasi0&ab_channel=Brackeys
+var direction = Vector2.RIGHT
 
 @onready var animatedSprite = $AnimatedSprite2D
 
@@ -23,8 +26,10 @@ func _physics_process(delta: float):
 	
 	#flip the sprite
 	if horizontalDirection > 0:
+		direction = Vector2.RIGHT
 		animatedSprite.flip_h = false
 	elif horizontalDirection < 0:
+		direction = Vector2.LEFT
 		animatedSprite.flip_h = true
 		
 	#play animations
@@ -40,3 +45,21 @@ func _physics_process(delta: float):
 	velocity.x = horizontalDirection * speed
 	
 	move_and_slide()
+	
+	#check for object spawning
+	if Input.is_action_just_pressed("spawn_object"):
+		spawn_object()
+		
+		
+func spawn_object():
+	#spawn the object as child of player
+	var spawnedObject = objectScene.instantiate()
+	get_parent().add_child(spawnedObject)
+	
+	#set the offset based on direction
+	if direction == Vector2.RIGHT:
+		offset = 20
+	else:
+		offset = 100
+	
+	spawnedObject.position = global_position + (direction.normalized() * offset)

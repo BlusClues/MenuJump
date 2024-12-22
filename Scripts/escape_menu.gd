@@ -4,18 +4,18 @@ extends CanvasLayer
 var menuVisible = false
 
 @onready var menuPanel = $Panel
-@onready var resumeButton = menuPanel.get_node("VBoxContainer/ResumeButton")
-@onready var settingsButton = menuPanel.get_node("VBoxContainer/SettingsButton")
-@onready var quitButton = menuPanel.get_node("VBoxContainer/QuitButton")
+#@onready var resumeButton = menuPanel.get_node("VBoxContainer/ResumeButton")
+#@onready var settingsButton = menuPanel.get_node("VBoxContainer/SettingsButton")
+#@onready var quitButton = menuPanel.get_node("VBoxContainer/QuitButton")
 
 func _ready():
 	#initially hide the menu
 	menuPanel.visible = false
 
 	#connect the buttons
-	resumeButton.connect("pressed", Callable(self, "_on_resume_button_pressed"))
-	settingsButton.connect("pressed", Callable(self, "_on_settings_button_pressed"))
-	quitButton.connect("pressed", Callable(self, "_on_quit_button_pressed"))
+	#resumeButton.connect("pressed", Callable(self, "_on_resume_button_pressed"))
+	#settingsButton.connect("pressed", Callable(self, "_on_settings_button_pressed"))
+	#quitButton.connect("pressed", Callable(self, "_on_quit_button_pressed"))
 
 
 func _input(event):
@@ -27,7 +27,7 @@ func _input(event):
 func toggle_menu():
 	menuVisible = !menuVisible
 	menuPanel.visible = menuVisible
-	get_tree().paused = menuVisible #pause game when menu visible
+	#get_tree().paused = menuVisible #pause game when menu visible
 	
 #button actions
 #close menu
