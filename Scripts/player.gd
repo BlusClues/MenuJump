@@ -67,10 +67,11 @@ func _physics_process(delta: float):
 	if Input.is_action_just_pressed("spawn_object"):
 		#pause the game
 		#enable the pressed escape var then check if there is already a settings box there
-		if !pressedEscape:
+		if !pressedEscape and spawnedObject == null:
 			spawn_object()
 		elif pressedEscape and spawnedObject != null:
 			settingsButton.enable_button()
+			pressedEscape = false
 		
 func spawn_object():
 	#spawn the object as child of player
