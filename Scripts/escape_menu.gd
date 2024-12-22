@@ -31,13 +31,13 @@ func toggle_menu():
 	
 #button actions
 #close menu
-func _on_resume_button_pressed():
-	toggle_menu()
+#func _on_resume_button_pressed():
+	#toggle_menu()
 	
 #open settings menu
-func _on_settings_button_pressed():
-	print("Open Settings Menu")
+#func _on_settings_button_pressed():
+	#print("Open Settings Menu")
 	
 #quit game
-func _on_quit_button_pressed():
-	get_tree().quit()
+#func _on_quit_button_pressed():
+	#get_tree().quit()

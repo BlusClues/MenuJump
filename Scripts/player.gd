@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var gravity = 30
 @export var jumpForce = 400
 @export var objectScene = preload("res://Scenes/SettingsButton.tscn")
+const PUSH_FORCE = 15.0
+const MIN_PUSH_FORCE = 10.0
 var offset
 #https://www.youtube.com/watch?v=LOhfqjmasi0&ab_channel=Brackeys
 var direction = Vector2.RIGHT
@@ -45,6 +47,16 @@ func _physics_process(delta: float):
 	velocity.x = horizontalDirection * speed
 	
 	move_and_slide()
+	
+	#allow the player to push objects
+	for i in range(get_slide_collision_count()):
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody2D:
+			var push_force = MIN_PUSH_FORCE * 2
+			var collider = c.get_collider()
+			var normal = c.get_normal()
+			
+			collider.apply_central_impulse(-normal * push_force)
 	
 	#check for object spawning
 	if Input.is_action_just_pressed("spawn_object"):
