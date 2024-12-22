@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://qhu0c3ssw4fw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfaj3"]
+size = Vector2(10.8182, 13.9615)
+
+[node name="ResumeButton" type="RigidBody2D" groups=["Rigidbody"]]
+disable_mode = 1
+collision_layer = 2
+collision_mask = 2
+
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Resume"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(35, 15.5)
+rotation = -3.14159
+scale = Vector2(6.47059, 2.36364)
+shape = SubResource("RectangleShape2D_rfaj3")
