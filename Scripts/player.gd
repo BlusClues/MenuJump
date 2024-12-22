@@ -3,15 +3,20 @@ extends CharacterBody2D
 @export var speed = 150
 @export var gravity = 30
 @export var jumpForce = 400
-@export var objectScene = preload("res://Scenes/SettingsButton.tscn")
+@export var settings = preload("res://Scenes/SettingsButton.tscn")
+@export var restart = preload("res://Scenes/restartButton.tscn")
+@export var quit = preload("res://Scenes/quitButton.tscn")
 const PUSH_FORCE = 15.0
 const MIN_PUSH_FORCE = 10.0
-var offset = 0
 #https://www.youtube.com/watch?v=LOhfqjmasi0&ab_channel=Brackeys
 var direction = Vector2.RIGHT
 var pressedEscape = false
-var spawnedObject
+var spawnedObjectSettings
+var spawnedObjectRestart
+var spawnedObjectQuit
 var settingsButton
+var restartButton
+var quitButton
 var draggingPossible = false
 
 @onready var animatedSprite = $AnimatedSprite2D
@@ -67,16 +72,24 @@ func _physics_process(delta: float):
 	if Input.is_action_just_pressed("spawn_object"):
 		#pause the game
 		#enable the pressed escape var then check if there is already a settings box there
-		if !pressedEscape and spawnedObject == null:
+		if !pressedEscape and spawnedObjectSettings == null:
 			spawn_object()
-		elif pressedEscape and spawnedObject != null:
+		elif pressedEscape and spawnedObjectSettings != null:
 			settingsButton.enable_button()
+			restartButton.enable_button()
+			quitButton.enable_button()
 			pressedEscape = false
 		
 func spawn_object():
 	#spawn the object as child of player
-	spawnedObject = objectScene.instantiate()
-	get_parent().add_child(spawnedObject)
+	spawnedObjectSettings = settings.instantiate()
+	get_parent().add_child(spawnedObjectSettings)
+	
+	spawnedObjectRestart = restart.instantiate()
+	get_parent().add_child(spawnedObjectRestart)
+	
+	spawnedObjectQuit = quit.instantiate()
+	get_parent().add_child(spawnedObjectQuit)
 	
 	#set the offset based on direction
 	#if direction == Vector2.RIGHT:
@@ -85,14 +98,30 @@ func spawn_object():
 		#offset = 100
 		
 	#setting offsets
-	var y_offset = -50
-	offset = -35
+	var y_offset_settings = -140
+	var x_offset_settings = -35
 	
+	var y_offset_restart = -105
+	var x_offset_restart = -85
+	
+	var y_offset_quit = -70
+	var x_offset_quit = -50
+	
+	#adjusting position of the button
 	#spawnedObject.position = global_position + (direction.normalized() * offset)
-	spawnedObject.position = global_position + Vector2(offset, y_offset)
+	spawnedObjectSettings.position = global_position + Vector2(x_offset_settings, y_offset_settings)
+	spawnedObjectRestart.position = global_position + Vector2(x_offset_restart, y_offset_restart)
+	spawnedObjectQuit.position = global_position + Vector2(x_offset_quit, y_offset_quit)
 	
-	settingsButton = spawnedObject
+	#disabling the button physics when it spawns
+	settingsButton = spawnedObjectSettings
 	settingsButton.disable_button()
+	
+	restartButton = spawnedObjectRestart
+	restartButton.disable_button()
+	
+	quitButton = spawnedObjectQuit
+	quitButton.disable_button()
 	
 	pressedEscape = true
 
