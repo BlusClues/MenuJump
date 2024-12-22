@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://do0x0tqytkl2s"]
+[gd_scene load_steps=10 format=3 uid="uid://do0x0tqytkl2s"]
 
 [ext_resource type="PackedScene" uid="uid://4meui3imrf4v" path="res://Scenes/player.tscn" id="1_3e3mf"]
 [ext_resource type="Script" path="res://Scripts/escape_menu.gd" id="2_ycvqt"]
 [ext_resource type="Texture2D" uid="uid://dej10s4ue0rg8" path="res://brackeys_platformer_assets/sprites/world_tileset.png" id="3_srxl4"]
-[ext_resource type="PackedScene" path="res://killzone.tscn" id="4_e4x0k"]
+[ext_resource type="PackedScene" uid="uid://cfkqv1nlenm56" path="res://killzone.tscn" id="4_e4x0k"]
 [ext_resource type="Texture2D" uid="uid://btn5nrtdv32bu" path="res://Backgrounds/photo2pixel_download.png" id="5_1jsvp"]
+[ext_resource type="FontFile" uid="uid://c7aogos5kmmu8" path="res://brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="6_v0k4g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gtxyw"]
 texture = ExtResource("3_srxl4")
@@ -239,3 +240,42 @@ position = Vector2(152, -763)
 scale = Vector2(1.17188, 1.03526)
 texture = ExtResource("5_1jsvp")
 centered = false
+
+[node name="Labels" type="Node" parent="."]
+
+[node name="Label2" type="Label" parent="Labels"]
+offset_left = 1059.0
+offset_top = -94.0
+offset_right = 1175.0
+offset_bottom = -71.0
+theme_override_fonts/font = ExtResource("6_v0k4g")
+theme_override_font_sizes/font_size = 8
+text = "Keep Climbing!"
+
+[node name="Label4" type="Label" parent="Labels"]
+offset_left = 1426.0
+offset_top = -560.0
+offset_right = 1510.0
+offset_bottom = -537.0
+theme_override_fonts/font = ExtResource("6_v0k4g")
+theme_override_font_sizes/font_size = 8
+text = "Almost there!"
+
+[node name="Label" type="Label" parent="Labels"]
+offset_left = 595.0
+offset_top = 29.0
+offset_right = 767.0
+offset_bottom = 52.0
+theme_override_fonts/font = ExtResource("6_v0k4g")
+theme_override_font_sizes/font_size = 8
+text = "Might as well give up... 
+"
+
+[node name="Label3" type="Label" parent="Labels"]
+offset_left = 1363.0
+offset_top = -269.0
+offset_right = 1542.0
+offset_bottom = -246.0
+theme_override_fonts/font = ExtResource("6_v0k4g")
+theme_override_font_sizes/font_size = 8
+text = "<- Going left is the right way"

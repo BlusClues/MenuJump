@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://o8tjpwno8bp2"]
+
+[ext_resource type="AudioStream" uid="uid://q17r6k0usmow" path="res://brackeys_platformer_assets/fonts/Audio/new-future-ian-aisling-main-version-30444-03-13.mp3" id="1_tb2et"]
+
+[node name="Music" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_tb2et")
+autoplay = true
+bus = &"Music"
