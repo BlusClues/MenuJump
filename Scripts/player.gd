@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed = 150
 @export var gravity = 30
 @export var jumpForce = 400
-@export var objectScene = preload("res://Scenes/ResumeButton.tscn")
+@export var objectScene = preload("res://Scenes/SettingsButton.tscn")
 var offset
 #https://www.youtube.com/watch?v=LOhfqjmasi0&ab_channel=Brackeys
 var direction = Vector2.RIGHT
@@ -49,7 +49,6 @@ func _physics_process(delta: float):
 	#check for object spawning
 	if Input.is_action_just_pressed("spawn_object"):
 		spawn_object()
-		
 		
 func spawn_object():
 	#spawn the object as child of player

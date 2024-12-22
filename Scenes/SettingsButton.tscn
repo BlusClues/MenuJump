@@ -1,17 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://cg2pb5ba82g07"]
+[gd_scene load_steps=3 format=3 uid="uid://cg2pb5ba82g07"]
+
+[ext_resource type="Script" path="res://Scripts/SettingsButton.gd" id="1_irc55"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rfaj3"]
 size = Vector2(10.8182, 13.9615)
 
-[node name="ResumeButton" type="RigidBody2D"]
+[node name="SettingsButton" type="RigidBody2D"]
 
 [node name="Button" type="Button" parent="."]
 offset_right = 8.0
 offset_bottom = 8.0
-text = "Resume"
+text = "Settings"
+script = ExtResource("1_irc55")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(35, 15.5)
 rotation = -3.14159
 scale = Vector2(6.47059, 2.36364)
 shape = SubResource("RectangleShape2D_rfaj3")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

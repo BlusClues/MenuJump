@@ -4,7 +4,7 @@ extends Node2D
 #store the falling speed
 var velocity = Vector2.ZERO
 
-@onready var button = $ResumeButton
+@onready var button = $SettingButton
 
 func _physics_process(delta: float):
 	#applys Gravity

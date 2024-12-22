@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://7xfvbi2d6y1y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pnows"]
+size = Vector2(96, 39)
+
+[node name="AudioButton" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(48, 19.5)
+shape = SubResource("RectangleShape2D_pnows")
+
+[node name="Button" type="Button" parent="."]
+offset_right = 96.0
+offset_bottom = 31.0
+text = "Audio"
+
+[node name="HSlider" type="HSlider" parent="Button"]
+offset_top = 27.0
+offset_right = 97.0
+offset_bottom = 43.0
+value = 50.0
