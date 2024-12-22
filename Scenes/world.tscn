@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://do0x0tqytkl2s"]
+
+[ext_resource type="PackedScene" uid="uid://4meui3imrf4v" path="res://Scenes/player.tscn" id="1_3e3mf"]
+[ext_resource type="Script" path="res://Scripts/escape_menu.gd" id="2_ycvqt"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_op4wh"]
+size = Vector2(1000, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6utnp"]
+size = Vector2(999, 101)
+
+[node name="World" type="Node2D"]
+
+[node name="Platform" type="StaticBody2D" parent="."]
+position = Vector2(554, 207)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform"]
+modulate = Color(0.394998, 0.844373, 1, 1)
+scale = Vector2(1.00103, 1)
+mesh = SubResource("QuadMesh_op4wh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_6utnp")
+
+[node name="Player" parent="." instance=ExtResource("1_3e3mf")]
+position = Vector2(551, 78)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, 4)
+scale = Vector2(15.4081, 0.75436)
+zoom = Vector2(4, 4)
+
+[node name="EscapeMenu" type="CanvasLayer" parent="."]
+script = ExtResource("2_ycvqt")
+
+[node name="Panel" type="Panel" parent="EscapeMenu"]
+offset_left = 517.0
+offset_top = 25.0
+offset_right = 587.0
+offset_bottom = 25.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EscapeMenu/Panel"]
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 101.0
+
+[node name="ResumeButton" type="Button" parent="EscapeMenu/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="SettingsButton" type="Button" parent="EscapeMenu/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="EscapeMenu/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
