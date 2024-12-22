@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://do0x0tqytkl2s"]
+[gd_scene load_steps=9 format=3 uid="uid://do0x0tqytkl2s"]
 
 [ext_resource type="PackedScene" uid="uid://4meui3imrf4v" path="res://Scenes/player.tscn" id="1_3e3mf"]
 [ext_resource type="Script" path="res://Scripts/escape_menu.gd" id="2_ycvqt"]
 [ext_resource type="Texture2D" uid="uid://dej10s4ue0rg8" path="res://brackeys_platformer_assets/sprites/world_tileset.png" id="3_srxl4"]
 [ext_resource type="PackedScene" uid="uid://cfkqv1nlenm56" path="res://killzone.tscn" id="4_e4x0k"]
+[ext_resource type="Texture2D" uid="uid://btn5nrtdv32bu" path="res://Backgrounds/photo2pixel_download.png" id="5_1jsvp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gtxyw"]
 texture = ExtResource("3_srxl4")
@@ -228,3 +229,13 @@ position = Vector2(706, 262)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_4kqo1")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(152, -763)
+scale = Vector2(1.17188, 1.03526)
+texture = ExtResource("5_1jsvp")
+centered = false
