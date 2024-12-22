@@ -2,10 +2,16 @@ extends Button
 
 @export var objectScene = preload("res://Scenes/AudioButton.tscn")
 var spawnedObjectInstance : Node = null
+@onready var draggingobject = $".."
+var dragging = false
 
 func _on_pressed() -> void:
+	#if draggingobject.dragging == true:
+	#dragging = true
+	
 	if not is_instance_valid(spawnedObjectInstance):
-		spawn_object()
+		if !dragging:
+			spawn_object()
 	
 func spawn_object():
 	if not objectScene:
@@ -23,3 +29,6 @@ func spawn_object():
 	else:
 		print("Parent node 'World' not found!")
 		
+		
+func set_dragging():
+	dragging = !dragging

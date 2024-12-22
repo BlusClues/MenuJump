@@ -4,6 +4,7 @@ extends CanvasLayer
 var menuVisible = false
 
 @onready var menuPanel = $Panel
+#@onready var settingsButton = menuPanel.get_node("/SettingsButton/CollisionShape2D")
 #@onready var resumeButton = menuPanel.get_node("VBoxContainer/ResumeButton")
 #@onready var settingsButton = menuPanel.get_node("VBoxContainer/SettingsButton")
 #@onready var quitButton = menuPanel.get_node("VBoxContainer/QuitButton")
@@ -11,6 +12,9 @@ var menuVisible = false
 func _ready():
 	#initially hide the menu
 	menuPanel.visible = false
+	var settingsButtonScript = load("res://Scripts/SettingsButton.gd")
+	var settingsButton = settingsButtonScript.new()
+	#settingsButton.disable_button()
 
 	#connect the buttons
 	#resumeButton.connect("pressed", Callable(self, "_on_resume_button_pressed"))
@@ -23,6 +27,7 @@ func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		toggle_menu()
 		
+	
 
 func toggle_menu():
 	menuVisible = !menuVisible

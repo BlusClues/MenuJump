@@ -6,11 +6,16 @@ extends CharacterBody2D
 @export var objectScene = preload("res://Scenes/SettingsButton.tscn")
 const PUSH_FORCE = 15.0
 const MIN_PUSH_FORCE = 10.0
-var offset
+var offset = 0
 #https://www.youtube.com/watch?v=LOhfqjmasi0&ab_channel=Brackeys
 var direction = Vector2.RIGHT
+var pressedEscape = false
+var spawnedObject
+var settingsButton
+var draggingPossible = false
 
 @onready var animatedSprite = $AnimatedSprite2D
+
 
 func _physics_process(delta: float):
 	#adds Gravity
@@ -60,17 +65,38 @@ func _physics_process(delta: float):
 	
 	#check for object spawning
 	if Input.is_action_just_pressed("spawn_object"):
-		spawn_object()
+		#pause the game
+		#enable the pressed escape var then check if there is already a settings box there
+		if !pressedEscape:
+			spawn_object()
+		elif pressedEscape and spawnedObject != null:
+			settingsButton.enable_button()
 		
 func spawn_object():
 	#spawn the object as child of player
-	var spawnedObject = objectScene.instantiate()
+	spawnedObject = objectScene.instantiate()
 	get_parent().add_child(spawnedObject)
 	
 	#set the offset based on direction
-	if direction == Vector2.RIGHT:
-		offset = 20
-	else:
-		offset = 100
+	#if direction == Vector2.RIGHT:
+		#offset = 20
+	#else:
+		#offset = 100
+		
+	#setting offsets
+	var y_offset = -50
+	offset = -35
 	
-	spawnedObject.position = global_position + (direction.normalized() * offset)
+	#spawnedObject.position = global_position + (direction.normalized() * offset)
+	spawnedObject.position = global_position + Vector2(offset, y_offset)
+	
+	settingsButton = spawnedObject
+	settingsButton.disable_button()
+	
+	pressedEscape = true
+
+
+func set_dragging_true():
+	draggingPossible = true
+func set_dragging_false():
+	draggingPossible = false
