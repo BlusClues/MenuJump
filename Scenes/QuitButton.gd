@@ -5,13 +5,17 @@ var spawnedObjectInstance : Node = null
 @onready var draggingobject = $".."
 var dragging = false
 
-#func _on_pressed() -> void:
-	#if draggingobject.dragging == true:
-	#dragging = true
+func _on_pressed() -> void:
+	if draggingobject.dragging == true:
+		dragging = true
 	
-	#if not is_instance_valid(spawnedObjectInstance):
-		#if !dragging:
-			#spawn_object()
+	if not is_instance_valid(spawnedObjectInstance) and Input.is_action_pressed("spawn_audio"):
+		back_scene()
+		
 	
 func set_dragging():
 	dragging = !dragging
+
+func back_scene():
+	get_tree().quit()
+	print("Quiting game!")
