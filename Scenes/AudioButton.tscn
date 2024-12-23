@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://7xfvbi2d6y1y"]
+[gd_scene load_steps=4 format=3 uid="uid://7xfvbi2d6y1y"]
+
+[ext_resource type="Script" path="res://Scenes/RigidBodySettings.gd" id="1_cuddn"]
+[ext_resource type="Script" path="res://Scripts/audio_button.gd" id="2_6o02c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pnows"]
 size = Vector2(96, 39)
 
 [node name="AudioButton" type="RigidBody2D"]
+script = ExtResource("1_cuddn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(48, 19.5)
@@ -13,6 +17,7 @@ shape = SubResource("RectangleShape2D_pnows")
 offset_right = 96.0
 offset_bottom = 31.0
 text = "Audio"
+script = ExtResource("2_6o02c")
 
 [node name="HSlider" type="HSlider" parent="Button"]
 layout_mode = 1

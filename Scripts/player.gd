@@ -70,16 +70,33 @@ func _physics_process(delta: float):
 	
 	#check for object spawning
 	if Input.is_action_just_pressed("spawn_object"):
-		#pause the game
-		#enable the pressed escape var then check if there is already a settings box there
-		if !pressedEscape and spawnedObjectSettings == null:
+		if spawnedObjectSettings == null and spawnedObjectRestart == null and spawnedObjectQuit == null:
 			spawn_object()
-		elif pressedEscape and spawnedObjectSettings != null:
-			settingsButton.enable_button()
-			restartButton.enable_button()
-			quitButton.enable_button()
-			pressedEscape = false
+			pressedEscape = true
+		else:
+			if is_instance_valid(spawnedObjectSettings) and is_instance_valid(spawnedObjectRestart) and is_instance_valid(spawnedObjectQuit):
+				if pressedEscape:
+					#Enable buttons (make draggable)
+					settingsButton.enable_button()
+					restartButton.enable_button()
+					quitButton.enable_button()
+					pressedEscape = false
+				else:
+					#Disable buttons (lock them)
+					settingsButton.disable_button()
+					restartButton.disable_button()
+					quitButton.disable_button()
+					pressedEscape = true
+			else:
+				reset_button_states()
 		
+func reset_button_states():
+	# Reset references if objects have been deleted
+	spawnedObjectSettings = null
+	spawnedObjectRestart = null
+	spawnedObjectQuit = null
+	pressedEscape = false
+
 func spawn_object():
 	#spawn the object as child of player
 	spawnedObjectSettings = settings.instantiate()

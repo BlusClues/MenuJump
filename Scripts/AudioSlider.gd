@@ -4,10 +4,10 @@ extends HSlider
 @onready var Collider = $"../../CollisionShape2D"
 @onready var RigidBody = $"../.."
 
-func _on_drag_ended(value_changed: bool) -> void:
-	var value = get_value()
+#func _on_drag_ended(value_changed: bool) -> void:
+	#var value = get_value()
 	
-	RigidBody.Transform.y.Scale = value
+	#RigidBody.Transform.y.Scale = value
 	#button.scale = Vector2(value / 100, value / 100)
 	#Collider.scale = Vector2(value / 150, value / 150)
 	#RigidBody.scale = Vector2(value , value )
