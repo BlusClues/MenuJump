@@ -194,6 +194,13 @@ zoom = Vector2(4, 4)
 limit_bottom = 190
 limit_smoothed = true
 
+[node name="Label" type="Label" parent="Player"]
+offset_left = -52.0
+offset_top = -162.0
+offset_right = 54.0
+offset_bottom = -139.0
+text = "Game Paused"
+
 [node name="EscapeMenu" type="CanvasLayer" parent="."]
 visible = false
 script = ExtResource("2_ycvqt")

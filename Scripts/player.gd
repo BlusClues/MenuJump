@@ -20,7 +20,10 @@ var quitButton
 var draggingPossible = false
 
 @onready var animatedSprite = $AnimatedSprite2D
+@onready var pause_text = $Label
 
+func _ready():
+	pause_text.visible = false
 
 func _physics_process(delta: float):
 	#adds Gravity
@@ -73,6 +76,7 @@ func _physics_process(delta: float):
 		if spawnedObjectSettings == null and spawnedObjectRestart == null and spawnedObjectQuit == null:
 			spawn_object()
 			pressedEscape = true
+			pause_text.visible = true
 		else:
 			if is_instance_valid(spawnedObjectSettings) and is_instance_valid(spawnedObjectRestart) and is_instance_valid(spawnedObjectQuit):
 				if pressedEscape:
@@ -81,12 +85,14 @@ func _physics_process(delta: float):
 					restartButton.enable_button()
 					quitButton.enable_button()
 					pressedEscape = false
+					pause_text.visible = false
 				else:
 					#Disable buttons (lock them)
 					settingsButton.disable_button()
 					restartButton.disable_button()
 					quitButton.disable_button()
 					pressedEscape = true
+					pause_text.visible = true
 			else:
 				reset_button_states()
 		

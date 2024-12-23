@@ -11,12 +11,14 @@ func disable_button():
 	collisionShape.disabled = true
 	gravity_scale = 0
 	disabled = true
+	button.modulate = Color(1, 0, 0)
 	
 func enable_button():
 	collisionShape.disabled = false
 	gravity_scale = 1
 	dragging = false
 	disabled = false
+	button.modulate = Color(1, 1, 1)
 
 func _process(delta):
 	if dragging == true and disabled == true:
