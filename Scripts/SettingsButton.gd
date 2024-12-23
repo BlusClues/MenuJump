@@ -9,7 +9,7 @@ func _on_pressed() -> void:
 	#if draggingobject.dragging == true:
 	#dragging = true
 	
-	if not is_instance_valid(spawnedObjectInstance) and  Input.is_action_pressed("spawn_audio"):
+	if not is_instance_valid(spawnedObjectInstance) and Input.is_action_pressed("spawn_audio"):
 		#if !dragging:
 		spawn_object()
 	

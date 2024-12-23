@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://4meui3imrf4v" path="res://Scenes/player.tscn" id="1_3e3mf"]
 [ext_resource type="Script" path="res://Scripts/escape_menu.gd" id="2_ycvqt"]
 [ext_resource type="Texture2D" uid="uid://dej10s4ue0rg8" path="res://brackeys_platformer_assets/sprites/world_tileset.png" id="3_srxl4"]
-[ext_resource type="PackedScene" uid="uid://cfkqv1nlenm56" path="res://killzone.tscn" id="4_e4x0k"]
+[ext_resource type="PackedScene" path="res://killzone.tscn" id="4_e4x0k"]
 [ext_resource type="Texture2D" uid="uid://btn5nrtdv32bu" path="res://Backgrounds/photo2pixel_download.png" id="5_1jsvp"]
 [ext_resource type="FontFile" uid="uid://c7aogos5kmmu8" path="res://brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="6_v0k4g"]
 

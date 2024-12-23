@@ -21,3 +21,4 @@ shape = SubResource("RectangleShape2D_ka3lb")
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
