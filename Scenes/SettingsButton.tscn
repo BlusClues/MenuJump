@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cg2pb5ba82g07"]
+[gd_scene load_steps=4 format=3 uid="uid://deu5tl33oxoi6"]
 
 [ext_resource type="Script" path="res://Scenes/RigidBodySettings.gd" id="1_4b68o"]
 [ext_resource type="Script" path="res://Scripts/SettingsButton.gd" id="1_irc55"]
