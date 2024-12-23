@@ -5,6 +5,7 @@ extends Node2D
 var velocity = Vector2.ZERO
 
 @onready var button = $SettingButton
+@onready var restart = $restartButton
 
 func _physics_process(delta: float):
 	#applys Gravity
