@@ -15,7 +15,7 @@ offset_left = -1.02673
 offset_right = 90.9733
 offset_bottom = 31.0
 scale = Vector2(1.13369, 1.60336)
-text = "Quit"
+text = "Quit + c"
 script = ExtResource("1_h6dbg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
