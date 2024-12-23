@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://4meui3imrf4v" path="res://Scenes/player.tscn" id="1_3e3mf"]
 [ext_resource type="Script" path="res://Scripts/escape_menu.gd" id="2_ycvqt"]
 [ext_resource type="Texture2D" uid="uid://dej10s4ue0rg8" path="res://brackeys_platformer_assets/sprites/world_tileset.png" id="3_srxl4"]
-[ext_resource type="PackedScene" path="res://killzone.tscn" id="4_e4x0k"]
+[ext_resource type="PackedScene" uid="uid://cfkqv1nlenm56" path="res://killzone.tscn" id="4_e4x0k"]
 [ext_resource type="Texture2D" uid="uid://btn5nrtdv32bu" path="res://Backgrounds/photo2pixel_download.png" id="5_1jsvp"]
 [ext_resource type="FontFile" uid="uid://c7aogos5kmmu8" path="res://brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="6_v0k4g"]
 
@@ -248,20 +248,21 @@ theme_override_font_sizes/font_size = 8
 text = "Almost there!"
 
 [node name="Label" type="Label" parent="Labels"]
-offset_left = 595.0
-offset_top = 29.0
-offset_right = 767.0
-offset_bottom = 52.0
+offset_left = 553.0
+offset_top = 4.0
+offset_right = 812.0
+offset_bottom = 27.0
 theme_override_fonts/font = ExtResource("6_v0k4g")
 theme_override_font_sizes/font_size = 8
-text = "Might as well give up... 
+text = "               Might as well give up
+instead of DRAGGING yourself through this 
 "
 
 [node name="Label3" type="Label" parent="Labels"]
-offset_left = 1367.0
-offset_top = -269.0
-offset_right = 1546.0
-offset_bottom = -246.0
+offset_left = 1394.0
+offset_top = -146.0
+offset_right = 1573.0
+offset_bottom = -123.0
 theme_override_fonts/font = ExtResource("6_v0k4g")
 theme_override_font_sizes/font_size = 8
 text = "Backdown we go!"
