@@ -91,11 +91,21 @@ func _physics_process(delta: float):
 				reset_button_states()
 		
 func reset_button_states():
+	if spawnedObjectSettings != null:
+		spawnedObjectSettings.queue_free()
+	
+	if spawnedObjectRestart != null:
+		spawnedObjectRestart.queue_free()
+		
+	if spawnedObjectQuit != null:
+		spawnedObjectQuit.queue_free()
+	
 	# Reset references if objects have been deleted
 	spawnedObjectSettings = null
 	spawnedObjectRestart = null
 	spawnedObjectQuit = null
 	pressedEscape = false
+
 
 func spawn_object():
 	#spawn the object as child of player
