@@ -17,5 +17,5 @@ func set_dragging():
 	dragging = !dragging
 
 func back_scene():
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://main_menu.tscn")
 	print("Quiting game!")
